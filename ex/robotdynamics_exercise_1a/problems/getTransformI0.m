@@ -4,4 +4,5 @@ function TI0 = getTransformI0()
   
   % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
   TI0 = zeros(4);
+  TI0 = diag(ones(4, 1))
 end

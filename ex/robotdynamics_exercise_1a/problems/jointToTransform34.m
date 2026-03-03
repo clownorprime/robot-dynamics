@@ -4,5 +4,11 @@ function T34 = jointToTransform34(q)
   
   % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
   T34 = zeros(4);
+  T34 = [
+            1,      0,          0,          134;
+            0,      cos(q(4)),  -sin(q(4)), 0;
+            0,      sin(q(4)),  cos(q(4)),  70; 
+            0,      0,              0,      1;
+        ]
 end
 

@@ -1,15 +1,8 @@
-
-
 function TI0 = getTransformI0()
-    TI0 = zeros(4);
-    TI0(4,4)=1;
-    TI0(1,1)=1;
-    TI0(2,2)=1;
-    TI0(3,3)=1;
- 
+  % Input: void
+  % Output: homogeneous transformation Matrix from frame 0 to the inertial frame I. T_I0
+  
+  % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
+  TI0 = zeros(4);
+  TI0 = diag(ones(4, 1))
 end
-
-
-
-
-

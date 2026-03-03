@@ -1,8 +1,13 @@
 function T34 = jointToTransform34(q)
-    t=q(4);
-    T34(1:4,1)=[1,0,0,0]';
-    T34(1:4,2)=[0,cos(t),sin(t),0]';
-    T34(1:4,3)=[0,-sin(t),cos(t),0]';
-    T34(1:4,4)=[0.134,0,0.070,1]';
-
+  % Input: joint angles
+  % Output: homogeneous transformation Matrix from frame 4 to frame 3. T_34
+  
+  % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
+  T34 = [
+            1,      0,          0,              0.134;
+            0,      cos(q(4,1)),  -sin(q(4,1)), 0;
+            0,      sin(q(4,1)),  cos(q(4,1)),  0.070; 
+            0,      0,              0,      1;
+        ];
 end
+

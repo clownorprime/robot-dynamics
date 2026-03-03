@@ -1,11 +1,12 @@
 function T01 = jointToTransform01(q)
-  if (length(q)>1)
-      q = q(1);
-  end    
-    t=q(1);
-    T01(1:4,1)=[cos(t),sin(t),0,0]';
-    T01(1:4,2)=[-sin(t),cos(t),0,0]';
-    T01(1:4,3)=[0,0,1,0]';
-    T01(1:4,4)=[0,0,0.145,1]';
-
+  % Input: joint angles
+  % Output: homogeneous transformation Matrix from frame 1 to frame 0. T_01
+  
+  % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
+  T01 = [
+            cos(q(1,1)),  -sin(q(1,1)),      0,      0;
+            sin(q(1,1)),  cos(q(1,1)),       0,      0;
+            0,          0,               1,      0.145;
+            0,          0,               0,      1;
+        ];
 end

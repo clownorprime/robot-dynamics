@@ -4,5 +4,6 @@ function T6E = getTransform6E()
   
   % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
   T6E = zeros(4);
+  T6E = diag(ones(4, 1))
 end
 

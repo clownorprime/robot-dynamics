@@ -1,6 +1,8 @@
 function B_r = rotVecWithQuat(q_BA,A_r)
-    p_A_r = [0;A_r];
-    t = mycross(q_BA,p_A_r);
-    p_B_r = mycross(t,q_BA');
-    B_r = p_B_r(2:4,:);
+  % Input: the orientation quaternion and the coordinate of the vector to be mapped
+  % Output: the coordinates of the vector in the target frame
+  
+  % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
+  B_r = zeros(3,1);
+  B_r = quatToRotMat(q_BA) * A_r;
 end

@@ -1,8 +1,12 @@
 function T12 = jointToTransform12(q)
-    T12 = zeros(4);
-    T12(1,1)=cos(q(2,1));    T12(1,3)=sin(q(2,1));
-    T12(2,2)=1;
-    T12(3,1)=-sin(q(2,1));    T12(3,3)=cos(q(2,1));    T12(3,4)=0.145;
-    T12(4,4)=1;
- 
+  % Input: joint angles
+  % Output: homogeneous transformation Matrix from frame 2 to frame 1. T_12
+  
+  % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
+  T12 = [
+            cos(q(2,1)),  0,      sin(q(2,1)),      0;
+            0,            1,      0,                0;
+            -sin(q(2,1)),  0,     cos(q(2,1)),      0.145;
+            0,            0,      0,                1;
+        ];
 end

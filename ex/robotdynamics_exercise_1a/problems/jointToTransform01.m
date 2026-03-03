@@ -3,5 +3,10 @@ function T01 = jointToTransform01(q)
   % Output: homogeneous transformation Matrix from frame 1 to frame 0. T_01
   
   % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
-  T01 = zeros(4);
+  T01 = [
+            cos(q(1)),  -sin(q(1)),      0,      0;
+            sin(q(1)),  cos(q(1)),       0,      0;
+            0,          0,               1,      145;
+            0,          0,               0,      1;
+        ]
 end

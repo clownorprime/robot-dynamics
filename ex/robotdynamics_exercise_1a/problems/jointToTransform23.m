@@ -4,4 +4,10 @@ function T23 = jointToTransform23(q)
   
   % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
   T23 = zeros(4);
+  T23 = [
+            cos(q(3)),  0,      -sin(q(3)),     0;
+            0,          1,      0,              0;
+            sin(q(3)),  0,      cos(q(3)),      270; 
+            0,          0,              0,      1;
+        ]
 end

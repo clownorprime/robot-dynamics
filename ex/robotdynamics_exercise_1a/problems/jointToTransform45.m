@@ -4,5 +4,11 @@ function T45 = jointToTransform45(q)
   
   % PLACEHOLDER FOR OUTPUT -> REPLACE WITH SOLUTION
   T45 = zeros(4);
+  T45 = [
+            1,      0,          0,          168;
+            0,      cos(q(5)),  -sin(q(5)), 0;
+            0,      sin(q(5)),  cos(q(5)),  0; 
+            0,      0,              0,      1;
+        ]
 end
 
