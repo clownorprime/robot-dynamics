@@ -1,24 +1,29 @@
-function J_R = jointToRotJac(q) 
-    T01 = jointToTransform01(q);
-    T12 = jointToTransform12(q);
-    T23 = jointToTransform23(q);
-    T34 = jointToTransform34(q);
-    T45 = jointToTransform45(q);
-    T56 = jointToTransform56(q);
-    
-    C_I1 = T01(1:3,1:3);
-    C_I2 = C_I1*T12(1:3,1:3);
-    C_I3 = C_I2*T23(1:3,1:3);
-    C_I4 = C_I3*T34(1:3,1:3);
-    C_I5 = C_I4*T45(1:3,1:3);
-    %C_I6 = C_I5*T56(1:3,1:3);
-    
-    n1 = [0 0 1]';
-    n2 = C_I1*[0 1 0]';
-    n3 = C_I2*[0 1 0]';
-    n4 = C_I3*[1 0 0]';
-    n5 = C_I4*[0 1 0]';
-    n6 = C_I5*[1 0 0]';
+function J_R = jointToRotJac(q)
+  % Input: vector of generalized coordinates (joint angles)
+  % Output: Jacobian of the end-effector orientation which maps joint
+  % velocities to end-effector angular velocities in I frame.
 
-    J_R=[n1,n2,n3,n4,n5,n6];
+  % Compute the rotational jacobian.
+  J_R = zeros(3, 6);
+  n_k = [
+            0 0 1;
+            0 1 0;
+            0 1 0;
+            1 0 0;
+            0 1 0;
+            1 0 0;
+        ]';
+  I_T_k = zeros(6, 4, 4);
+  I_T_k(1,:,:) = jointToTransform01(q);
+  I_T_k(2,:,:) = squeeze(I_T_k(1,:,:)) * jointToTransform12(q);
+  I_T_k(3,:,:) = squeeze(I_T_k(2,:,:)) * jointToTransform23(q);
+  I_T_k(4,:,:) = squeeze(I_T_k(3,:,:)) * jointToTransform34(q);
+  I_T_k(5,:,:) = squeeze(I_T_k(4,:,:)) * jointToTransform45(q);
+  I_T_k(6,:,:) = squeeze(I_T_k(5,:,:)) * jointToTransform56(q);
+  I_n_k = zeros(3, 6);
+  for i = 1 : 6
+      I_R_k = squeeze(I_T_k(i,1:3,1:3));
+      J_R(:,i) = I_R_k * n_k(:,i);
+  end
+
 end
