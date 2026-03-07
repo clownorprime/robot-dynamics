@@ -8,4 +8,14 @@ function [ pinvA ] = pseudoInverseMat(A, lambda)
 % TODO: complete the computation of the pseudo-inverse.
 % Hint: How should we account for both left and right pseudo-inverse forms?
 pinvA = zeros(n, m);
+if rank(A) == m
+    pinVA = A' * inv(A * A');
+elif rank(A) == n
+    pinVA = inv(A' * A) * A';
+elif m >= n
+    pinVA = inv(A' * A + lambda * lambda * diag(ones(n, 1))) * A';
+else
+    pinVA = A' * inv(A * A' + lambda * lambda * diag(ones(m, 1)));
+end
+
 end

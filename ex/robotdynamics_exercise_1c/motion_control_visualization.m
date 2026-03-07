@@ -71,6 +71,7 @@ for k = 1:N
     % Update the visualizations
     for i = 1:3
         set(r_h(i), 'Ydata', r_log(:,i));
+       
         set(v_h(i), 'Ydata', v_log(:,i));
     end
     drawnow;

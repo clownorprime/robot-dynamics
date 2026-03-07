@@ -14,7 +14,7 @@ function [ Dq ] = kinematicMotionControl(q, r_des, v_des)
 % Output: joint-space velocity command of the robot.
 
 % TODO: User defined linear position gain
-K_p = 5;
+K_p = 10;
 
 % TODO: User defined pseudo-inverse damping coefficient
 lambda = 0.1;
